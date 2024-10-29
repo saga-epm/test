@@ -4,8 +4,8 @@ on:
   push:
     branches:
       - main
-    # paths:
-    #   - 'sandbox/**'
+    paths:
+      - 'sandbox/**'
   
 # permissions on workflow uses id-token: write. 
 # You won't be able to request the OIDC JWT ID token if the permissions setting for id-token is set to read or none.
