@@ -1,11 +1,11 @@
 name: Sandbox Terraform Deploy
 
 on:
-  pull_request:
+  push:
     branches:
       - main
     paths:
-      - 'envs/**'
+      - 'envs/test/**'
   
 # permissions on workflow uses id-token: write. 
 # You won't be able to request the OIDC JWT ID token if the permissions setting for id-token is set to read or none.
@@ -20,7 +20,13 @@ jobs:
   azure-login:
     name: Resources
     runs-on: ubuntu-latest
-    
+    environment: sandbox
+
+    # Add env variables for service principal
+    env:
+      ENVIRONMENT: ${{ vars.ENVIRONMENT }}
+      #TF_LOG: DEBUG # Set to DEBUG to see Terraform logs
+
     steps:
       - name: echo 
-        run: echo "PR triggered ${{ github.workspace }}!"
+        run: echo "code added!"
