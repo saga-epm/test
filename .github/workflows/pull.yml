@@ -1,4 +1,4 @@
-name: Sandbox Terraform Deploy
+name: Code PR
 
 on:
   pull_request_target:
@@ -10,7 +10,7 @@ jobs:
   
   # login to azure and deploy resources
   azure-login:
-    name: Resources
+    name: Code Pull Request
     runs-on: ubuntu-latest
     environment: sandbox
 
