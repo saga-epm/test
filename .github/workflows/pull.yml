@@ -21,4 +21,8 @@ jobs:
 
     steps:
       - name: pull request 
-        run: echo "pull request created!"
+        run: |
+          echo "pull request created!"
+          echo "Branch name is ${{ github.ref }}"
+          echo "Head Branch name is ${{ github.head_ref }}"
+          echo "Base Branch name is ${{ github.base_ref }}"
