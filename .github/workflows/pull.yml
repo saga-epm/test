@@ -17,7 +17,7 @@ jobs:
       ENVIRONMENT: ${{ vars.ENVIRONMENT }}
       #TF_LOG: DEBUG # Set to DEBUG to see Terraform logs
 
-    if: github.event_name == 'pull_request' && github.base_ref == 'main' && github.head_ref == 'feature/**'
+    if: github.event_name == 'pull_request' && github.base_ref == 'main' && contains(github.head_ref, 'feature/**')
     steps:
       - name: pull request 
         run: |
