@@ -22,4 +22,8 @@ jobs:
 
     steps:
       - name: echo 
-        run: echo "Pushed to feature branch!"
+        run: |
+          echo "Push Created!"
+          echo "Branch name is ${{ github.ref }}"
+          echo "Head Branch name is ${{ github.head_ref }}"
+          echo "Base Branch name is ${{ github.base_ref }}"
