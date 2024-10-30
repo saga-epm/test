@@ -1,0 +1,25 @@
+name: Code Push
+
+on:
+  push:
+    branches:
+      # - main
+      - 'feature/**'
+    # paths:
+    #   - 'envs/sandbox/**'
+  
+jobs:
+  
+  azure-login:
+    name: Feature Branch Push
+    runs-on: ubuntu-latest
+    environment: sandbox
+
+    # Add env variables for service principal
+    env:
+      ENVIRONMENT: ${{ vars.ENVIRONMENT }}
+      TF_LOG: DEBUG # Set to DEBUG to see Terraform logs
+
+    steps:
+      - name: echo 
+        run: echo "Pushed to feature branch!"
