@@ -5,17 +5,25 @@ on:
     branches:
       - '!main'         # code push to any feature branch other than main
       - 'feature/**'
-      - 'foo' 
+      - '*'
     # paths:
     #   - 'envs/sandbox/**'
   
 jobs:
 
-  reusable_workflow:
+  reusable_workflow-sandbox:
     name: Reusable Workflow
     uses: ./.github/workflows/echo.yml
     with:
-        envname: 'local'
+        name_var: 'StephCurry'
+        githubenv_var: 'sandbox'
+
+  reusable_workflow-dev:
+    name: Reusable Workflow
+    uses: ./.github/workflows/echo.yml
+    with:
+        name_var: 'TimDuncan'
+        githubenv_var: 'dev'
 
   azure-login:
     name: Feature Branch Push

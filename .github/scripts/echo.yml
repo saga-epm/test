@@ -3,20 +3,34 @@ name: Echo Script
 on: 
   workflow_call:
     inputs:
-      envname:
+      name_var:
         type: string
-        description: 'Default env to run'
+        description: 'Workflow Variable - Name'
         required: true
-        default: 'local'
-  
+        default: ''
+      githubenv_var:
+        type: string
+        description: 'Workflow Variable - Environment'
+        required: true
+        default: 'beta'
+
 jobs:
   deploy-job:
     name: Echo Deploy Job
     runs-on: ubuntu-latest
+    environment: ${{ inputs.githubenv_var }}
+    env:
+      NAME: ${{ vars.NAME }}
+      SECRETNAME: ${{ secrets.NAME }}
     steps:
       - name: echo
         run: |
-          echo "Hello, World ${{inputs.envname}}!"
+          echo "EchoScript!"
+          echo "-------------------------------------------"
+          echo "Workflow Variable name_var - $inputs.name_var"
+          echo "Workflow Variable githubenv_var - $inputs.githubenv_var"
           echo "Branch name is ${{ github.ref }}"
           echo "Head Branch name is ${{ github.head_ref }}"
           echo "Base Branch name is ${{ github.base_ref }}"
+          echo "EnvVariable name is $NAME"
+          echo "SecretVariable Branch name is $SECRETNAME"
