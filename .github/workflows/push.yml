@@ -13,7 +13,7 @@ jobs:
 
   reusable_workflow-sandbox:
     name: Reusable Workflow Sandbox
-    uses: ./.github/workflows/echo.yml
+    uses: ./.github/scripts/echo1.yml
     with:
         name_var: 'StephCurry'
         githubenv_var: 'sandbox'
@@ -21,7 +21,7 @@ jobs:
       
   reusable_workflow-dev:
     name: Reusable Workflow Dev
-    uses: ./.github/workflows/echo.yml
+    uses: ./.github/scripts/echo1.yml
     with:
         name_var: 'TimDuncan'
         githubenv_var: 'dev'
