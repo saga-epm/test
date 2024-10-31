@@ -12,8 +12,8 @@ jobs:
 
   reusable_workflow:
     name: Reusable Workflow
-    #uses: 'saga-epm/test/.github/scripts/echo.yml@main'
-    uses: 'echo.yml@main'
+    uses: 'saga-epm/test/.github/scripts/echo.yml@main'
+    #uses: 'echo.yml@main'
     with:
         envname: 'local'
 
