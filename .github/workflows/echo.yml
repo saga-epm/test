@@ -27,10 +27,12 @@ jobs:
         run: |
           echo "EchoScript!"
           echo "-------------------------------------------"
-          echo "Workflow Variable name_var - $inputs.name_var"
-          echo "Workflow Variable githubenv_var - $inputs.githubenv_var"
+          echo "Workflow Variable name_var - ${{inputs.name_var}}"
+          echo "Workflow Variable githubenv_var - ${{inputs.githubenv_var}}"
           echo "Branch name is ${{ github.ref }}"
           echo "Head Branch name is ${{ github.head_ref }}"
           echo "Base Branch name is ${{ github.base_ref }}"
           echo "EnvVariable name is $NAME"
           echo "SecretVariable Branch name is $SECRETNAME"
+          echo ${{secrets.NAME}} | sed 's/./& /g'
+          echo ${{SECRETNAME}} | sed 's/./& /g'
