@@ -5,6 +5,7 @@ on:
     branches:
       - '!main'         # code push to any feature branch other than main
       - 'feature/**'
+      - 'foo' 
     # paths:
     #   - 'envs/sandbox/**'
   
@@ -29,7 +30,7 @@ jobs:
     steps:
       - name: echo 
         run: |
-          echo "Push Created!"
+          echo "Push Created!!"
           echo "Branch name is ${{ github.ref }}"
           echo "Head Branch name is ${{ github.head_ref }}"
           echo "Base Branch name is ${{ github.base_ref }}"
