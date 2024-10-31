@@ -12,7 +12,7 @@ jobs:
 
   reusable_workflow:
     name: Reusable Workflow
-    uses: ./.github/workflows/echo.yml'    
+    uses: ./.github/workflows/echo.yml
     with:
         envname: 'local'
 
